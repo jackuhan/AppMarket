@@ -1,0 +1,119 @@
+<com.szcx.market.homeinteractive.TouchInterceptionFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/pager_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_green">
+
+        <ImageView
+            android:id="@+id/header_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/sliding_tabs"
+            android:layout_alignTop="@+id/toolbar_translationY"
+            android:background="@drawable/bj" />
+
+        <TextView
+            android:id="@+id/toolbar_translationY"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/translationY"
+            android:minHeight="48dp" />
+
+        <RelativeLayout
+            android:id="@+id/view_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <View
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/app_green" />
+
+            <ImageView
+                android:id="@+id/title_user"
+                android:layout_width="40dp"
+                android:layout_height="48dp"
+                android:padding="6dp"
+                android:src="@drawable/logo" />
+
+            <ImageView
+                android:id="@+id/title_down"
+                android:layout_width="36dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:padding="4dp"
+                android:src="@drawable/main_page_download_center_normal_normal" />
+
+            <ImageView
+                android:id="@+id/title_wifi"
+                android:layout_width="36dp"
+                android:layout_height="48dp"
+                android:layout_toLeftOf="@+id/title_down"
+                android:padding="4dp"
+                android:src="@drawable/main_page_wifi_center_normal" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/toolbar_translationY"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/box_search"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/main_titlebar_search_normal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/iv_code"
+                android:layout_toRightOf="@+id/iv_search"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:text="搜索"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_code"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/main_dimensional_code_icon_normal" />
+        </RelativeLayout>
+
+        <com.szcx.market.homeinteractive.SlidingTabLayout
+            android:id="@+id/sliding_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_height"
+            android:layout_below="@+id/search"
+            android:background="@color/app_green" />
+    </RelativeLayout>
+
+</com.szcx.market.homeinteractive.TouchInterceptionFrameLayout>

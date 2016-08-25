@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/app_green</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="StatusButton" parent="AppTheme">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:background">@drawable/btn_download_list</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Text" parent="AppTheme" />
+
+    <style name="Text.ListTitle" parent="Text">
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textColor">@color/black_light</item>
+    </style>
+
+    <style name="Text.ActionbarTitle" parent="Text">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Text.DetailText" parent="Text">
+        <item name="android:textSize">@dimen/font_small</item>
+        <item name="android:textColor">@color/gray_9b</item>
+    </style>
+
+    <style name="Image" parent="AppTheme" />
+
+    <style name="Image.DetailIcon" parent="Image">
+        <item name="android:layout_width">96dp</item>
+        <item name="android:layout_height">96dp</item>
+    </style>
+
+</resources>

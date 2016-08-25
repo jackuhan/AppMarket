@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_background"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:background="@drawable/background_selector_list"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="61dp"
+            android:layout_height="61dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/spacing_ten"
+            tools:src="@drawable/ic_fenlei" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ivLogo"
+            android:layout_toLeftOf="@+id/btnDownload"
+            android:layout_toRightOf="@id/ivLogo"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvName"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_toRightOf="@id/ivLogo"
+            android:textSize="@dimen/font_small"
+            tools:text="类型" />
+
+        <TextView
+            android:id="@+id/dowload_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvType"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_toRightOf="@+id/ivLogo"
+            android:textSize="@dimen/font_small" />
+
+        <Button
+            android:id="@+id/btnDownload"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/app_green"
+            android:text="@string/download"
+            android:textColor="@color/write" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

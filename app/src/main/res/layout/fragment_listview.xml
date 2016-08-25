@@ -1,0 +1,5 @@
+<com.szcx.market.homeinteractive.ObservableRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:background="@color/write"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />

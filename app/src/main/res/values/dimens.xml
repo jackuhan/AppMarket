@@ -1,0 +1,77 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="actionbar_height">48dp</dimen>
+    <dimen name="font_larger_tem">20sp</dimen>
+    <dimen name="font_larger">22sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_centre">14sp</dimen>
+    <dimen name="font_tiny">10sp</dimen>
+    <dimen name="font_nine">9sp</dimen>
+
+    <dimen name="spacing_very_larger">80dp</dimen>
+    <dimen name="spacing_ten">10dp</dimen>
+    <dimen name="spacing_twelve">12dp</dimen>
+    <dimen name="spacing_huge">40dp</dimen>
+    <dimen name="spacing_five">35dp</dimen>
+    <dimen name="spacing_thirty">30dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_normal">14dp</dimen>
+    <dimen name="spacing_small">10dp</dimen>
+    <dimen name="spacing_tiny">4dp</dimen>
+    <dimen name="spacing_seven">7dp</dimen>
+    <dimen name="spacing_two">2dp</dimen>
+    <dimen name="spacing_one">1dp</dimen>
+    <dimen name="spacing_smaller">6dp</dimen>
+    <dimen name="spacing_seventeen">17dp</dimen>
+    <dimen name="spacing_eighteen">18dp</dimen>
+
+    <dimen name="icon_size_large">36dp</dimen>
+    <dimen name="icon_size_twenty_nine">29dp</dimen>
+    <dimen name="icon_size_normal">24dp</dimen>
+    <dimen name="icon_size_twenty">20dp</dimen>
+
+    <dimen name="progress_height">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="btn_height">40dp</dimen>
+    <dimen name="btn_height_normal">36dp</dimen>
+
+    <dimen name="btn_width">50dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="font_twelve">12sp</dimen>
+    <dimen name="fifty_one">51dp</dimen>
+    <dimen name="fifty_six">60dp</dimen>
+
+    <dimen name="detail_image_size">160dp</dimen>
+    <dimen name="detail_image_forty_two">142dp</dimen>
+
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="margin_short">8dp</dimen>
+    <dimen name="margin_extra_short">4dp</dimen>
+
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <dimen name="toolbar_margin_start">72dp</dimen>
+    <dimen name="flexible_space_height">72dp</dimen>
+    <dimen name="flexible_space_image_height">240dp</dimen>
+    <dimen name="flexible_space_show_fab_offset">120dp</dimen>
+
+    <dimen name="parallax_image_height">180dp</dimen>
+    <dimen name="tab_height">48dp</dimen>
+
+    <dimen name="header_bar_height">72dp</dimen>
+    <dimen name="intersection_height">16dp</dimen>
+
+    <dimen name="sliding_slop">32dp</dimen>
+    <dimen name="sliding_overlay_blur_size">4dp</dimen>
+
+    <dimen name="translationY">150dp</dimen>
+
+
+
+</resources>

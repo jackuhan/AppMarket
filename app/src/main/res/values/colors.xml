@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#585858</color>
+    <color name="colorPrimaryDark">#2b2b2b</color>
+    <color name="app_green">#23C284</color>
+
+    <color name="write">#ffffff</color>
+    <color name="gray">#666</color>
+    <color name="gray_background">#e5e5e5</color>
+    <color name="gray_light">#cccc</color>
+    <color name="gray_dark">#333</color>
+
+    <color name="myred">#eb4f38</color>
+    <color name="red">#fe0100</color>
+
+    <color name="color_white">#ffffff</color>
+    <color name="btn_press_color">#5677fc</color>
+    <color name="btn_pressed_color">#3ca0ec</color>
+    <color name="tab_text_color">#656565</color>
+
+    <color name="gray_9b">#9a9a9a</color>
+    <color name="black">#000000</color>
+    <color name="grag_2e">#2e3037</color>
+
+    <color name="grag_5f">#5f5f5f</color>
+
+    <color name="green_yellow">#ADFF2F</color>
+    <color name="black_light">#222</color>
+    <color name="primary">#009688</color>
+    <color name="primaryDark">#00796b</color>
+    <color name="accent">#eeff41</color>
+    <color name="accentLight">#F4FF81</color>
+
+    <color name="abc_search_url_text_normal">#7fa87f</color>
+    <color name="abc_search_url_text_selected">@android:color/black</color>
+    <color name="abc_search_url_text_pressed">@android:color/black</color>
+
+    <color name="item_white">#ffffff</color>
+
+</resources>
