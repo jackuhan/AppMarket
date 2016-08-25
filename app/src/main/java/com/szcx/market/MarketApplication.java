@@ -15,75 +15,71 @@ import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
 /**
  * Created by C on 8/12/2015.
  */
 public class MarketApplication extends Application {
 
-    private static MarketApplication mInstance;
+  private static MarketApplication mInstance;
 
-    private RequestQueue mRequestQueue;
-    private Gson mGson;
+  private RequestQueue mRequestQueue;
+  private Gson mGson;
 
-    private ExecutorService mCachedThreadPool;
-    public static DownloadManager downloadManager;
+  private ExecutorService mCachedThreadPool;
+  public static DownloadManager downloadManager;
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
+  @Override public void onCreate() {
+    super.onCreate();
 
-        mInstance = this;
+    mInstance = this;
 
-        initDownloader();
+    initDownloader();
 
-        downloadManager = DownloadService.getDownloadManager(MarketApplication.this);
+    downloadManager = DownloadService.getDownloadManager(MarketApplication.this);
+  }
+
+  public static DownloadManager getDownloadManager() {
+    return downloadManager;
+  }
+
+  private void initDownloader() {
+    File downloadDir = Utils.getDownloadDir();
+    if (!downloadDir.exists() || !downloadDir.isDirectory()) {
+      downloadDir.mkdirs();
     }
+  }
 
-    public static DownloadManager getDownloadManager() {
-        return downloadManager;
+  public static MarketApplication getInstance() {
+    return mInstance;
+  }
+
+  public RequestQueue getVolleyRequestQueue() {
+    if (mRequestQueue == null) {
+      mRequestQueue = Volley.newRequestQueue(this, new OkHttpStack(new OkHttpClient()));
     }
+    return mRequestQueue;
+  }
 
-    private void initDownloader() {
-        File downloadDir = Utils.getDownloadDir();
-        if (!downloadDir.exists() || !downloadDir.isDirectory()) {
-            downloadDir.mkdirs();
-        }
+  private static void addRequest(@NonNull final Request<?> request) {
+    getInstance().getVolleyRequestQueue().add(request);
+  }
 
+  public static void addRequest(@NonNull final Request<?> request, @NonNull final String tag) {
+    request.setTag(tag);
+    addRequest(request);
+  }
+
+  public Gson getGson() {
+    if (mGson == null) {
+      mGson = new Gson();
     }
+    return mGson;
+  }
 
-    public static MarketApplication getInstance() {
-        return mInstance;
+  public ExecutorService getCachedThreadPool() {
+    if (mCachedThreadPool == null) {
+      mCachedThreadPool = Executors.newCachedThreadPool();
     }
-
-    public RequestQueue getVolleyRequestQueue() {
-        if (mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(this, new OkHttpStack(new OkHttpClient()));
-        }
-        return mRequestQueue;
-    }
-
-    private static void addRequest(@NonNull final Request<?> request) {
-        getInstance().getVolleyRequestQueue().add(request);
-    }
-
-    public static void addRequest(@NonNull final Request<?> request, @NonNull final String tag) {
-        request.setTag(tag);
-        addRequest(request);
-    }
-
-    public Gson getGson() {
-        if (mGson == null) {
-            mGson = new Gson();
-        }
-        return mGson;
-    }
-
-    public ExecutorService getCachedThreadPool() {
-        if (mCachedThreadPool == null) {
-            mCachedThreadPool = Executors.newCachedThreadPool();
-        }
-        return mCachedThreadPool;
-    }
-
+    return mCachedThreadPool;
+  }
 }

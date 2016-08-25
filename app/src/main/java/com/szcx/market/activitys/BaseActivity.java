@@ -17,6 +17,6 @@ public abstract class BaseActivity extends FragmentActivity {
 
   @Override protected void onResume() {
     super.onResume();
-    Log.v(TAG,"onResume");
+    Log.v(TAG, "onResume");
   }
 }
