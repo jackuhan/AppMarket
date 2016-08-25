@@ -109,9 +109,13 @@ public class DownloadManager {
    */
   private NotificationCompat.Builder createNotificationBuilder(final DownloadInfo downloadInfo) {
     NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext);
-    builder.setWhen(System.currentTimeMillis())// 通知产生的时间，会在通知信息里显示
-        .setContentIntent(PendingIntent.getActivity(mContext, 1, new Intent(), 0)).setPriority(Notification.PRIORITY_DEFAULT)// 设置该通知优先级
-        .setOngoing(false).setContentIntent(getPendingIntent(false, downloadInfo)).setSmallIcon(R.drawable.ic_fenlei);
+    builder
+        .setWhen(System.currentTimeMillis())// 通知产生的时间，会在通知信息里显示
+        //.setContentIntent(PendingIntent.getActivity(mContext, 1, new Intent(), 0))
+        .setPriority(Notification.PRIORITY_DEFAULT)// 设置该通知优先级
+        .setOngoing(false)
+        .setContentIntent(getPendingIntent(false, downloadInfo))
+        .setSmallIcon(R.drawable.ic_fenlei);
     return builder;
   }
 
@@ -121,8 +125,9 @@ public class DownloadManager {
    * @param isDownloadFinish 是否下载完成
    * @param downloadInfo 下载对象
    */
-  private PendingIntent getPendingIntent(boolean isDownloadFinish, DownloadInfo downloadInfo) {
+  public PendingIntent getPendingIntent(boolean isDownloadFinish, DownloadInfo downloadInfo) {
     Intent intent = null;
+    Log.d("getFileSavePath",downloadInfo.getFileSavePath());
     if (isDownloadFinish) {//下载完成打开安装界面
       intent = new Intent();
       intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

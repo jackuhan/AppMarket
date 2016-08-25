@@ -56,7 +56,7 @@ public class DownloadInfo {
   }
 
   public HttpHandler.State getState() {
-    return state;
+    return null == state ? HttpHandler.State.LOADING : state;
   }
 
   public void setState(HttpHandler.State state) {

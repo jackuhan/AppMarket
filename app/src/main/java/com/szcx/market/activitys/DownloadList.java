@@ -1,5 +1,7 @@
 package com.szcx.market.activitys;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,9 +30,9 @@ import java.util.List;
  * @author CharmingLee 2015-6-18
  */
 public class DownloadList extends BaseActivity {
-  private static final int KEY_1 = 0;
-  private static final int KEY_2 = 1;
-  private static final int KEY_3 = 2;
+  private static final int TITLE_ING = 0;
+  private static final int TITLE_FINISH = 1;
+  private static final int KEY_ITEM = 2;
   private ListView act_download_list;
   private DownloadManager downloadManager;
   private List<DownloadInfo> downloadFinishInfos;//完成下载的列表
@@ -79,11 +81,11 @@ public class DownloadList extends BaseActivity {
 
     @Override public int getItemViewType(int position) {
       if (position == 0) {
-        return KEY_1;
+        return TITLE_ING;
       } else if (position == downloadingInfos.size() + 1) {
-        return KEY_2;
+        return TITLE_FINISH;
       } else {
-        return KEY_3;
+        return KEY_ITEM;
       }
     }
 
@@ -104,12 +106,12 @@ public class DownloadList extends BaseActivity {
       BaseDownloadHolder holder = null;
       if (convertView == null) {
         switch (itemViewType) {
-          case KEY_1:
+          case TITLE_ING:
             convertView = LayoutInflater.from(DownloadList.this).inflate(R.layout.activity_downloadlist_downloadingtab, null);
             holder = new Hodler1();
             ((Hodler1) holder).act_downloadlist_tv_ing = (TextView) convertView.findViewById(R.id.act_downloadlist_tv_ing);
             break;
-          case KEY_2:
+          case TITLE_FINISH:
             convertView = LayoutInflater.from(DownloadList.this).inflate(R.layout.activity_downloadlist_downloadfinishtab, null);
             holder = new Hodler2();
             ((Hodler2) holder).act_download_tv_finish = (TextView) convertView.findViewById(R.id.act_download_tv_finish);
@@ -139,7 +141,7 @@ public class DownloadList extends BaseActivity {
               }
             });
             break;
-          case KEY_3:
+          case KEY_ITEM:
             convertView = View.inflate(DownloadList.this, R.layout.activity_list_view_item, null);
             holder = new Hodler3();
             ((Hodler3) holder).download_label = (TextView) convertView.findViewById(R.id.download_label);
@@ -152,27 +154,27 @@ public class DownloadList extends BaseActivity {
         convertView.setTag(holder);
       } else {
         switch (itemViewType) {
-          case KEY_1:
+          case TITLE_ING:
             holder = (Hodler1) convertView.getTag();
             break;
-          case KEY_2:
+          case TITLE_FINISH:
             holder = (Hodler2) convertView.getTag();
             break;
-          case KEY_3:
+          case KEY_ITEM:
             holder = (Hodler3) convertView.getTag();
             break;
         }
       }
       //填充数据
       switch (itemViewType) {
-        case KEY_1:
+        case TITLE_ING:
           ((Hodler1) holder).act_downloadlist_tv_ing.setText("进行中(" + downloadingInfos.size() + ")");
           break;
-        case KEY_2:
+        case TITLE_FINISH:
           ((Hodler2) holder).act_download_tv_finish.setText("已完成(" + downloadFinishInfos.size() + ")");
 
           break;
-        case KEY_3:
+        case KEY_ITEM:
           //=======================获取对应位置的holder设置数据===============================
           if (position < downloadingInfos.size() + 1) {//下载中
             // 因为显示进行中数量的布局占用了一个位置，在集合中对应位置必须-1
@@ -196,7 +198,14 @@ public class DownloadList extends BaseActivity {
     private void setHolderData(final Hodler3 holder, final DownloadInfo downloadInfo, final DownloadManager downloadManager) {
       if (downloadInfo != null) {
         holder.download_label.setText(downloadInfo.getFileName());
-        //                holder.download_state.setText(downloadInfo.getState() + "");
+        holder.download_state.setText(downloadInfo.getState() + "");
+        if (downloadInfo.getState() == HttpHandler.State.CANCELLED || downloadInfo.getState() == HttpHandler.State.FAILURE) {
+          holder.download_stop_btn.setText("重下");
+        } else if(downloadInfo.getState() == HttpHandler.State.SUCCESS){
+          holder.download_stop_btn.setText("安装");
+        } else if (downloadInfo.getState() == HttpHandler.State.LOADING) {
+          holder.download_stop_btn.setText("暂定");
+        }
         //暂停、继续、重试按钮点击事件
         holder.download_stop_btn.setOnClickListener(new View.OnClickListener() {
           @Override public void onClick(View v) {
@@ -205,6 +214,13 @@ public class DownloadList extends BaseActivity {
                 downloadManager.resumeDownload(downloadInfo, new DownloadRequestCallBack());
               } else if (downloadInfo.getState() == HttpHandler.State.LOADING) {
                 downloadManager.stopDownload(downloadInfo);
+              } else if(downloadInfo.getState() == HttpHandler.State.SUCCESS){
+                File file = new File(downloadInfo.getFileSavePath());
+                Intent intent = new Intent();
+                intent.setAction(android.content.Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
               }
               //更新Listview数据
               initData();

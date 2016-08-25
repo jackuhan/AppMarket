@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@id/download_label"
+        android:id="@+id/download_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -15,17 +15,18 @@
 
 
     <ProgressBar
-        android:id="@id/download_pb"
+        android:id="@+id/download_pb"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/download_label"
-        android:layout_toLeftOf="@id/download_stop_btn"
+        android:layout_below="@+id/download_label"
+        android:layout_toLeftOf="@+id/download_state"
+        android:layout_marginRight="2dp"
         android:focusable="false" />
 
     <Button
-        android:id="@id/download_remove_btn"
+        android:id="@+id/download_remove_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:focusable="false"
@@ -33,14 +34,26 @@
         android:visibility="gone" />
 
     <Button
-        android:id="@id/download_stop_btn"
+        android:id="@+id/download_state"
+        android:layout_toLeftOf="@+id/download_stop_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="@color/myred"
+        android:focusable="false"
+        android:text="0"
+        android:textColor="@color/write"
+        android:textSize="11sp"
+        android:layout_alignBottom="@+id/download_pb" />
+
+    <Button
+        android:id="@+id/download_stop_btn"
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:background="@color/app_green"
         android:focusable="false"
         android:text="暂停"
         android:textColor="@color/write"
-        android:layout_alignBottom="@id/download_pb"
+        android:layout_alignBottom="@+id/download_pb"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

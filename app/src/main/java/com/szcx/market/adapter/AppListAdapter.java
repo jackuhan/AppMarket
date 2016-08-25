@@ -65,7 +65,7 @@ public class AppListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
           }
         }
       });
-      //_holder.btnDownload.setText("下载");
+      _holder.btnDownload.setText("下载");
       _holder.btnDownload.setOnClickListener(new View.OnClickListener() {
         @Override public void onClick(View v) {
           if (mListener != null) {
@@ -86,27 +86,27 @@ public class AppListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
       //    requestCallBack.setUserTag(new WeakReference<AppHolder>(_holder));
       //}
       //
-      HttpHandler.State state = downloadInfo.getState();
-      switch (state) {
-        case WAITING:
-          _holder.btnDownload.setText("暂停");
-          break;
-        case STARTED:
-          _holder.btnDownload.setText("连接中");
-          break;
-        case LOADING:
-          _holder.btnDownload.setText("下载中");
-          break;
-        case CANCELLED:
-          _holder.btnDownload.setText("继续");
-          break;
-        case SUCCESS:
-          _holder.btnDownload.setText("安装");
-          break;
-        case FAILURE:
-          _holder.btnDownload.setText("重试");
-          break;
-      }
+      //HttpHandler.State state = downloadInfo.getState();
+      //switch (state) {
+      //  case WAITING:
+      //    _holder.btnDownload.setText("暂停");
+      //    break;
+      //  case STARTED:
+      //    _holder.btnDownload.setText("连接中");
+      //    break;
+      //  case LOADING:
+      //    _holder.btnDownload.setText("下载中");
+      //    break;
+      //  case CANCELLED:
+      //    _holder.btnDownload.setText("继续");
+      //    break;
+      //  case SUCCESS:
+      //    _holder.btnDownload.setText("安装");
+      //    break;
+      //  case FAILURE:
+      //    _holder.btnDownload.setText("重试");
+      //    break;
+      //}
     }
   }
 
